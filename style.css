@@ -332,9 +332,11 @@ textarea {
 }
 
 .hero-description {
-    width: max-content;
-    max-width: 700px;
+    width: 100%;
+    max-width: 900px;
     margin: 14px auto 0;
+
+    padding-inline: 8px;
 
     color: rgba(255, 255, 255, 0.90);
 
@@ -346,7 +348,8 @@ textarea {
 }
 
 @media (min-width: 1001px) {
-    .hero-description{
+    .hero-description {
+        max-width: 1200px;
         white-space: nowrap;
     }
 }
@@ -1459,6 +1462,7 @@ textarea {
 
     .header-container {
         width: 94%;
+        max-width: 100%;
     }
 
     .brand-logo {
@@ -1487,8 +1491,10 @@ textarea {
     }
 
     .hero {
-        min-height: 92vh;
-        padding: 105px 6% 70px;
+        min-height: auto;
+        min-height: 92svh;
+        padding: 105px 6% 75px;
+        overflow: hidden;
     }
 
     .hero-eyebrow {
@@ -1497,8 +1503,12 @@ textarea {
     }
 
     .hero h1 {
-        font-size: 44px;
+        width: 100%;
+        max-width: 100%;
+        font-size: clamp(38px, 11vw, 44px);
         letter-spacing: -1px;
+        line-height: 1.02;
+        overflow-wrap: normal;
     }
 
     .hero-subtitle {
@@ -1506,8 +1516,13 @@ textarea {
     }
 
     .hero-description {
+        width: 100%;
+        max-width: 100%;
+        padding-inline: 0;
         font-size: 14px;
         line-height: 1.7;
+        white-space: normal;
+        overflow-wrap: break-word;
     }
 
     .hero-buttons {
@@ -1517,8 +1532,12 @@ textarea {
     }
 
     .hero-btn {
-        width: 100%;
+        width: min(100%, 280px);
         max-width: 280px;
+    }
+
+    .hero-buttons {
+        width: 100%;
     }
 
     .scroll-indicator {
@@ -1667,85 +1686,19 @@ textarea {
     outline-offset: 3px;
 }
 
-
 /* =========================================================
-   NAVBAR BRAND NAME
-   Miles Wings Travel
+   MOBILE WIDTH SAFETY
 ========================================================= */
-
-.brand-logo {
-    display: inline-flex;
-    align-items: center;
-    gap: 16px;
+html,
+body,
+main,
+.hero,
+.header-container {
+    max-width: 100%;
 }
 
-.brand-name {
-    display: inline-block;
-    color: var(--navy);
-    font-size: 16px;
-    font-weight: 800;
-    letter-spacing: 1.1px;
-    line-height: 1;
-    white-space: nowrap;
-    text-decoration: none;
-    transition:
-        font-size .5s cubic-bezier(.22,1,.36,1),
-        color .25s ease,
-        opacity .25s ease;
-}
-
-.site-header.scrolled .brand-name {
-    font-size: 14px;
-}
-
-.brand-logo:hover .brand-name {
-    color: var(--gold);
-}
-
-@media (max-width: 1100px) {
-    .brand-logo {
-        gap: 12px;
-    }
-
-    .brand-name {
-        font-size: 14px;
-        letter-spacing: .8px;
-    }
-
-    .site-header.scrolled .brand-name {
-        font-size: 13px;
-    }
-}
-
-@media (max-width: 1000px) {
-    .brand-logo {
-        gap: 10px;
-    }
-
-    .brand-name {
-        font-size: 13px;
-        letter-spacing: .7px;
-    }
-
-    .site-header.scrolled .brand-name {
-        font-size: 12px;
-    }
-}
-
-@media (max-width: 600px) {
-    .brand-logo {
-        gap: 8px;
-        max-width: calc(100% - 55px);
-    }
-
-    .brand-name {
-        font-size: 12px;
-        letter-spacing: .55px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-
-    .site-header.scrolled .brand-name {
-        font-size: 11px;
-    }
+.hero-content,
+.hero-buttons,
+.hero-description {
+    min-width: 0;
 }
